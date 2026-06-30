@@ -1,64 +1,359 @@
+/* ---------- GLOBAL ---------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f7f7f7;
-    color: #333;
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #333333;
+  background-color: #ffffff;
+  line-height: 1.6;
 }
 
-header {
-    background: #005bbb;
-    color: white;
-    padding: 20px;
-    text-align: center;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-nav {
-    background: #003f7f;
-    padding: 10px;
-    text-align: center;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-    font-weight: bold;
+/* ---------- COLORS ---------- */
+
+:root {
+  --blue-primary: #005BBB;
+  --blue-navy: #003F7F;
+  --blue-accent: #4FA3FF;
+  --gray-soft: #F7F7F7;
+  --text-charcoal: #333333;
+  --white: #ffffff;
 }
 
-nav a:hover {
-    text-decoration: underline;
-}
+/* ---------- LAYOUT ---------- */
 
 .container {
-    width: 90%;
-    max-width: 900px;
-    margin: auto;
-    padding: 30px 0;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-h1, h2 {
-    color: #003f7f;
+.section {
+  padding: 80px 0;
+}
+
+.section-gray {
+  background-color: var(--gray-soft);
+}
+
+.section-dark {
+  background-color: var(--blue-navy);
+  color: var(--white);
+}
+
+/* ---------- NAVBAR ---------- */
+
+.navbar {
+  background-color: var(--blue-primary);
+  color: var(--white);
+  padding: 16px 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  height: 40px;
+}
+
+.nav-title {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.nav-links a {
+  color: var(--white);
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+/* Instagram icon in nav */
+.nav-social {
+  margin-left: 24px;
+}
+
+.nav-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--white);
+  font-size: 14px;
+}
+
+.nav-social-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------- HERO ---------- */
+
+.hero {
+  background-color: var(--blue-primary);
+  color: var(--white);
+  padding: 100px 0;
+  background-image: url("images/hero-option-f.jpg"); /* Option F image */
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-overlay {
+  background: rgba(0, 59, 127, 0.75);
+  position: absolute;
+  inset: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-inner {
+  max-width: 650px;
+}
+
+.hero-title {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--blue-navy);
+  color: var(--white);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--white);
+  border: 1px solid var(--white);
+}
+
+.btn-primary:hover,
+.btn-outline:hover {
+  opacity: 0.9;
+}
+
+/* ---------- HEADINGS ---------- */
+
+.section-heading {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: var(--blue-navy);
+}
+
+.section-heading-light {
+  color: var(--white);
+}
+
+.section-subheading {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+/* ---------- GRID / CARDS ---------- */
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.card-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.card-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
 }
 
 .card {
-    background: white;
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
-button, .btn {
-    background: #005bbb;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
+.card-title {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--blue-navy);
 }
 
-button:hover, .btn:hover {
-    background: #003f7f;
+.card-text {
+  font-size: 15px;
+}
+
+/* ---------- SIGNUPS ---------- */
+
+.signup-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.signup-title {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--blue-navy);
+}
+
+.signup-text {
+  font-size: 15px;
+}
+
+.signup-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.signup-note {
+  font-size: 14px;
+  color: var(--text-charcoal);
+  font-style: italic;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+  background-color: var(--blue-navy);
+  color: var(--white);
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer-logo {
+  height: 40px;
+  margin: 0 auto 10px;
+}
+
+.footer-text {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.footer-social-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .card-grid-3,
+  .card-grid-4,
+  .card-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 80px 0;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
+  .nav-social {
+    margin-left: 0;
+  }
 }
